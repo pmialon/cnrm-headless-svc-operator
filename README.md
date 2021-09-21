@@ -16,7 +16,12 @@ Only [RedisInstance](https://cloud.google.com/config-connector/docs/reference/re
 ## Quickstart
 
 ```
-kubectl apply -k github.com/pmialon/kustomize
+kubectl apply -k kustomize
+```
+
+See the created services:
+```
+kubectl get svc -l managed.by=cnrm-headless-svc -w
 ```
 
 ## Build instructions
