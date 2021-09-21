@@ -6,7 +6,7 @@ kind: Service
 metadata:
   name: $2
   labels:
-    managed.by: cnrm-headless-svc
+    app.kubernetes.io/managed-by: cnrm-headless-svc
     kind: $1
 spec:
   clusterIP: None
@@ -28,7 +28,7 @@ kind: Endpoints
 metadata:
   name: $2
   labels:
-    managed.by: cnrm-headless-svc
+    app.kubernetes.io/managed-by: cnrm-headless-svc
     kind: $1
 subsets:
   - addresses:
@@ -44,7 +44,7 @@ EOF
 
 garbage::collection() {
 
-for svc in $(kubectl get svc -l "kind=$1,managed.by=cnrm-headless-svc" -o jsonpath='{.items[*].metadata.name}')
+for svc in $(kubectl get svc -l "kind=$1,app.kubernetes.io/managed-by=cnrm-headless-svc" -o jsonpath='{.items[*].metadata.name}')
 do
   if [[ -z $(jq -r ".[0].objects[] | select (.object.metadata.name | contains(\"${svc}\"))" $BINDING_CONTEXT_PATH) ]] ; then
     kubectl delete svc ${svc}

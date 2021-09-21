@@ -21,7 +21,7 @@ kubectl apply -f https://raw.githubusercontent.com/pmialon/cnrm-headless-svc-ope
 
 See the created services:
 ```
-kubectl get svc -l managed.by=cnrm-headless-svc -w
+kubectl get svc -l "kubectl get svc -l "app.kubernetes.io/managed-by=cnrm-headless-svc" -w
 ```
 
 ## Build instructions
