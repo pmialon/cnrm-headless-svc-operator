@@ -1,0 +1,24 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cnrm-headless-svc-operator
+spec:
+  template:
+    metadata:
+      annotations:
+        prometheus.io/scrape: 'true'
+        prometheus.io/port: '9115'
+    spec:
+      containers:
+      - name: shell-operator
+        image: pmialon/cnrm-headless-svc-operator:0.1.0
+        imagePullPolicy: Always
+        env:
+        - name: NAMESPACE
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.namespace
+#       - name: DEBUG
+#         value: "true"
+      serviceAccountName: cnrm-headless-svc-operator
