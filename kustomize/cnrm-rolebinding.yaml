@@ -8,5 +8,5 @@ roleRef:
   kind: ClusterRole
   name: cnrm-viewer
 subjects:
-- kind: ServiceAccount
-  name: cnrm-headless-svc-operator
+  - kind: ServiceAccount
+    name: cnrm-headless-svc-operator

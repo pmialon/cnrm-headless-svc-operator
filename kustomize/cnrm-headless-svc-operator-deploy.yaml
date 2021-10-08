@@ -7,18 +7,25 @@ spec:
   template:
     metadata:
       annotations:
-        prometheus.io/scrape: 'true'
         prometheus.io/port: '9115'
+        prometheus.io/scrape: 'true'
     spec:
       containers:
-      - name: shell-operator
-        image: pmialon/cnrm-headless-svc-operator:0.1.0
-        imagePullPolicy: Always
-        env:
-        - name: NAMESPACE
-          valueFrom:
-            fieldRef:
-              fieldPath: metadata.namespace
-#       - name: DEBUG
-#         value: "true"
+        - env:
+            - name: NAMESPACE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.namespace
+            - name: DEBUG
+              value: 'false'
+          image: pmialon/cnrm-headless-svc-operator:0.1.0
+          imagePullPolicy: Always
+          name: shell-operator
+          resources:
+            limits:
+              cpu: 2
+              memory: 1Gi
+            requests:
+              cpu: 100m
+              memory: 128Mi
       serviceAccountName: cnrm-headless-svc-operator
