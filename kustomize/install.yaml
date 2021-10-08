@@ -100,6 +100,7 @@ spec:
       annotations:
         prometheus.io/port: "9115"
         prometheus.io/scrape: "true"
+        sidecar.istio.io/inject: "false"
       labels:
         app.kubernetes.io/component: operator
         app.kubernetes.io/instance: cnrm-headless-svc-operator

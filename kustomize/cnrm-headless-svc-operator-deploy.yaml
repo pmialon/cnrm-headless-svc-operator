@@ -9,6 +9,7 @@ spec:
       annotations:
         prometheus.io/port: '9115'
         prometheus.io/scrape: 'true'
+        sidecar.istio.io/inject: 'false'
     spec:
       containers:
         - env:
@@ -29,6 +30,6 @@ spec:
               cpu: 20m
               memory: 128Mi
           securityContext:
-            runAsUser: 10297
             runAsGroup: 10297
+            runAsUser: 10297
       serviceAccountName: cnrm-headless-svc-operator

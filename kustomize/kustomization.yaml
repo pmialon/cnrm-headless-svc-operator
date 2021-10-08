@@ -1,5 +1,6 @@
 ---
 apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
 commonLabels:
   app.kubernetes.io/component: operator
   app.kubernetes.io/instance: cnrm-headless-svc-operator
@@ -7,7 +8,6 @@ commonLabels:
   app.kubernetes.io/name: cnrm-headless-svc-operator
   app.kubernetes.io/part-of: cnrm-headless-svc
   app.kubernetes.io/version: v0.2.2
-kind: Kustomization
 resources:
   - cnrm-headless-svc-operator-deploy.yaml
   - cnrm-headless-svc-operator-sa.yaml
