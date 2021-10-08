@@ -18,7 +18,7 @@ spec:
                   fieldPath: metadata.namespace
             - name: DEBUG
               value: 'false'
-          image: pmialon/cnrm-headless-svc-operator:0.1.0
+          image: pmialon/cnrm-headless-svc-operator:0.2.0
           imagePullPolicy: Always
           name: shell-operator
           resources:
@@ -28,4 +28,7 @@ spec:
             requests:
               cpu: 100m
               memory: 128Mi
+          securityContext:
+            runAsUser: 10297
+            runAsGroup: 10297
       serviceAccountName: cnrm-headless-svc-operator
