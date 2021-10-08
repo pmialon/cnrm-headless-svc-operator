@@ -2,7 +2,7 @@
 
 DEBUG=${DEBUG:=false}
 
-source /hooks/common/functions.sh
+source /hooks/common/functions
 
 if [[ $1 == "--config" ]] ; then
   cat <<EOF

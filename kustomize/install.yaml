@@ -7,7 +7,7 @@ metadata:
     app.kubernetes.io/managed-by: kustomize
     app.kubernetes.io/name: cnrm-headless-svc-operator
     app.kubernetes.io/part-of: cnrm-headless-svc
-    app.kubernetes.io/version: v0.1.0
+    app.kubernetes.io/version: v0.2.2
   name: cnrm-headless-svc-operator
 ---
 apiVersion: rbac.authorization.k8s.io/v1
@@ -19,7 +19,7 @@ metadata:
     app.kubernetes.io/managed-by: kustomize
     app.kubernetes.io/name: cnrm-headless-svc-operator
     app.kubernetes.io/part-of: cnrm-headless-svc
-    app.kubernetes.io/version: v0.1.0
+    app.kubernetes.io/version: v0.2.2
   name: service-edit
 rules:
 - apiGroups:
@@ -46,7 +46,7 @@ metadata:
     app.kubernetes.io/managed-by: kustomize
     app.kubernetes.io/name: cnrm-headless-svc-operator
     app.kubernetes.io/part-of: cnrm-headless-svc
-    app.kubernetes.io/version: v0.1.0
+    app.kubernetes.io/version: v0.2.2
   name: cnrm
 roleRef:
   apiGroup: rbac.authorization.k8s.io
@@ -65,7 +65,7 @@ metadata:
     app.kubernetes.io/managed-by: kustomize
     app.kubernetes.io/name: cnrm-headless-svc-operator
     app.kubernetes.io/part-of: cnrm-headless-svc
-    app.kubernetes.io/version: v0.1.0
+    app.kubernetes.io/version: v0.2.2
   name: service-edit
 roleRef:
   apiGroup: rbac.authorization.k8s.io
@@ -84,7 +84,7 @@ metadata:
     app.kubernetes.io/managed-by: kustomize
     app.kubernetes.io/name: cnrm-headless-svc-operator
     app.kubernetes.io/part-of: cnrm-headless-svc
-    app.kubernetes.io/version: v0.1.0
+    app.kubernetes.io/version: v0.2.2
   name: cnrm-headless-svc-operator
 spec:
   selector:
@@ -94,7 +94,7 @@ spec:
       app.kubernetes.io/managed-by: kustomize
       app.kubernetes.io/name: cnrm-headless-svc-operator
       app.kubernetes.io/part-of: cnrm-headless-svc
-      app.kubernetes.io/version: v0.1.0
+      app.kubernetes.io/version: v0.2.2
   template:
     metadata:
       annotations:
@@ -106,7 +106,7 @@ spec:
         app.kubernetes.io/managed-by: kustomize
         app.kubernetes.io/name: cnrm-headless-svc-operator
         app.kubernetes.io/part-of: cnrm-headless-svc
-        app.kubernetes.io/version: v0.1.0
+        app.kubernetes.io/version: v0.2.2
     spec:
       containers:
       - env:
@@ -116,15 +116,15 @@ spec:
               fieldPath: metadata.namespace
         - name: DEBUG
           value: "false"
-        image: pmialon/cnrm-headless-svc-operator:0.2.0
+        image: pmialon/cnrm-headless-svc-operator:0.2.2
         imagePullPolicy: Always
         name: shell-operator
         resources:
           limits:
-            cpu: 2
-            memory: 1Gi
+            cpu: 1
+            memory: 512Mi
           requests:
-            cpu: 100m
+            cpu: 20m
             memory: 128Mi
         securityContext:
           runAsGroup: 10297

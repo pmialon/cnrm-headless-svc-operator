@@ -18,15 +18,15 @@ spec:
                   fieldPath: metadata.namespace
             - name: DEBUG
               value: 'false'
-          image: pmialon/cnrm-headless-svc-operator:0.2.0
+          image: pmialon/cnrm-headless-svc-operator:0.2.2
           imagePullPolicy: Always
           name: shell-operator
           resources:
             limits:
-              cpu: 2
-              memory: 1Gi
+              cpu: 1
+              memory: 512Mi
             requests:
-              cpu: 100m
+              cpu: 20m
               memory: 128Mi
           securityContext:
             runAsUser: 10297

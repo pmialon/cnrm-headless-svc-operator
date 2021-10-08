@@ -6,7 +6,7 @@ commonLabels:
   app.kubernetes.io/managed-by: kustomize
   app.kubernetes.io/name: cnrm-headless-svc-operator
   app.kubernetes.io/part-of: cnrm-headless-svc
-  app.kubernetes.io/version: v0.1.0
+  app.kubernetes.io/version: v0.2.2
 kind: Kustomization
 resources:
   - cnrm-headless-svc-operator-deploy.yaml
