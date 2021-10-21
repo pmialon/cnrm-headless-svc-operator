@@ -119,7 +119,15 @@ spec:
           value: "false"
         image: pmialon/cnrm-headless-svc-operator:0.2.2
         imagePullPolicy: Always
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 9115
         name: shell-operator
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 9115
         resources:
           limits:
             cpu: 1
