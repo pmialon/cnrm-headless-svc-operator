@@ -11,6 +11,7 @@ commonLabels:
 resources:
   - cnrm-headless-svc-operator-deploy.yaml
   - cnrm-headless-svc-operator-sa.yaml
+  - cnrm-pdb.yaml
   - cnrm-rolebinding.yaml
   - service-edit-role.yaml
   - service-edit-rolebinding.yaml

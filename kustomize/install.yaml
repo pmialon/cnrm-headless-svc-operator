@@ -139,3 +139,25 @@ spec:
           runAsGroup: 10297
           runAsUser: 10297
       serviceAccountName: cnrm-headless-svc-operator
+---
+apiVersion: policy/v1beta1
+kind: PodDisruptionBudget
+metadata:
+  labels:
+    app.kubernetes.io/component: operator
+    app.kubernetes.io/instance: cnrm-headless-svc-operator
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: cnrm-headless-svc-operator
+    app.kubernetes.io/part-of: cnrm-headless-svc
+    app.kubernetes.io/version: v0.2.2
+  name: cnrm
+spec:
+  minAvailable: 0
+  selector:
+    matchLabels:
+      app.kubernetes.io/component: operator
+      app.kubernetes.io/instance: cnrm-headless-svc-operator
+      app.kubernetes.io/managed-by: kustomize
+      app.kubernetes.io/name: cnrm-headless-svc-operator
+      app.kubernetes.io/part-of: cnrm-headless-svc
+      app.kubernetes.io/version: v0.2.2
