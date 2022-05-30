@@ -19,7 +19,7 @@ spec:
                   fieldPath: metadata.namespace
             - name: DEBUG
               value: 'false'
-          image: pmialon/cnrm-headless-svc-operator:0.2.2
+          image: pmialon/cnrm-headless-svc-operator:0.3.0
           imagePullPolicy: Always
           name: shell-operator
           livenessProbe:
